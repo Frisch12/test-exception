@@ -1,9 +1,10 @@
 using System;
+using System.Threading.Tasks;
 
 namespace ExceptionTestRealTest
 {
     public interface IMyCoolTestInterfaceWhichCantDoMuch
     {
-        String DoMuchStuff(String stuff);
+        Task<String> DoMuchStuff(String stuff);
     }
 }
