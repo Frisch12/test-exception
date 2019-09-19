@@ -18,7 +18,8 @@ namespace ExceptionTestRealTest
             for (int i = 0; i < 2000; i++)
             {
                 var myCoolMock = Substitute.For<IMyCoolTestInterfaceWhichCantDoMuch>();
-                myCoolMock.DoMuchStuff(Arg.Any<string>()).Throws(new NotImplementedException());
+                myCoolMock.When(x => x.DoMuchStuff(Arg.Any<string>()))
+                    .Do(x => throw new NotImplementedException());
                 Func<Task> doWork = async () =>
                 {
                     await ((Func<Task>) (async () => await Task.Run(() => myCoolMock.DoMuchStuff("")).ConfigureAwait(false)))().ConfigureAwait(false);
@@ -33,7 +34,8 @@ namespace ExceptionTestRealTest
             for (int i = 0; i < 2000; i++)
             {
                 var myCoolMock = Substitute.For<IMyCoolTestInterfaceWhichCantDoMuch>();
-                myCoolMock.DoMuchStuff(Arg.Any<string>()).Throws(new NotImplementedException());
+                myCoolMock.When(x => x.DoMuchStuff(Arg.Any<string>()))
+                    .Do(x => throw new NotImplementedException());
                 Func<Task> doWork = async () =>
                 {
                     await ((Func<Task>) (async () => await Task.Run(() => myCoolMock.DoMuchStuff("")).ConfigureAwait(false)))().ConfigureAwait(false);
@@ -48,7 +50,8 @@ namespace ExceptionTestRealTest
             for (int i = 0; i < 2000; i++)
             {
                 var myCoolMock = Substitute.For<IMyCoolTestInterfaceWhichCantDoMuch>();
-                myCoolMock.DoMuchStuff(Arg.Any<string>()).Throws(new NotImplementedException());
+                myCoolMock.When(x => x.DoMuchStuff(Arg.Any<string>()))
+                    .Do(x => throw new NotImplementedException());
                 Func<Task> doWork = async () =>
                 {
                     await ((Func<Task>) (async () => await Task.Run(() => myCoolMock.DoMuchStuff("")).ConfigureAwait(false)))().ConfigureAwait(false);
